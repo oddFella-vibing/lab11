@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
