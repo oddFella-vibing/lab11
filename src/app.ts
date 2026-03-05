@@ -19,7 +19,8 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 // Use absolute paths to avoid the "Project Ghost" issue
-app.set("views", path.join(__dirname, "views"));
+// Look for views in the src folder, not dist
+app.set("views", path.join(__dirname, "..", "src", "views"));
 
 app.use(authRoutes);
 app.use(pageRoutes);

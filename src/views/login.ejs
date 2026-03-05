@@ -1,22 +1,36 @@
-// login.ejs
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
 <body>
-<h1>Login</h1>
-<% if (err) { %>
-<p style="color:red;">Invalid email or password</p>
-<% } %>
-<form method="POST" action="/login">
-<input name="email" placeholder="email" />
-<input name="password" type="password" placeholder="password" />
-<button type="submit">Login</button>
-</form>
-<hr />
-<p>Need a test user?</p>
-<form method="POST" action="/register">
-<input name="email" placeholder="email" />
-<input name="password" type="password" placeholder="password" />
-<button type="submit">Register (for testing)</button>
-</form>
+    <h1>Login</h1>
+
+    <% if (locals.err) { %>
+        <p style="color:red; font-weight: bold;"><%= err %></p>
+    <% } %>
+
+    <% if (locals.msg) { %>
+        <p style="color:green; font-weight: bold;"><%= msg %></p>
+    <% } %>
+
+    <form method="POST" action="/login">
+        <input name="email" type="email" placeholder="email" required />
+        <input name="password" type="password" placeholder="password" required />
+        <button type="submit">Login</button>
+    </form>
+
+    <hr />
+
+    <h3>Quick Register (Dev Testing)</h3>
+    <form method="POST" action="/register">
+        <input name="email" type="email" placeholder="email" required />
+        <input name="password" type="password" placeholder="password" required />
+        <button type="submit">Create Test Account</button>
+    </form>
+
+    <br>
+    <a href="/">← Back to Home</a>
 </body>
 </html>

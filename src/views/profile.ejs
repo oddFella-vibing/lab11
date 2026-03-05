@@ -1,13 +1,26 @@
-
-// profile.ejs
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile - <%= user.email %></title>
+</head>
 <body>
-<h1>Profile (Protected)</h1>
-<p>UserId: <%= user.userId %></p>
-<p>Email: <%= user.email %></p>
-<form method="POST" action="/logout">
-<button type="submit">Logout</button>
-</form>
+    <h1>User Profile</h1>
+    
+    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; max-width: 400px;">
+        <p><strong>Status:</strong> ✅ Authenticated</p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <p><strong>User ID:</strong> <code><%= user.userId %></code></p>
+    </div>
+
+    <br>
+    <form method="POST" action="/logout">
+        <button type="submit" style="background-color: #ff4444; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Logout
+        </button>
+    </form>
+
+    <hr />
+    <p><a href="/">← Return to Home</a></p>
 </body>
 </html>
